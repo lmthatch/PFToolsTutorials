@@ -2,18 +2,24 @@ ConvertingParFlowTclScript2Python_LW
 
 convert SJBM tcl script to python
 
-# Step 0: Prerequisites
 ParFlow installed w/ CLM
 pftools installed
 
+# Step 0: Clean up your original Tcl Script (optional)
+The following steps will use the `LW_Test.tcl` script as an example pre conversion test condition, if you're following along with this example, you can skip this step. However, if you're working with your own tcl script, it is recommended that you do a quick script clean up before converting it to Python. Tcl code that is not reconized by the converter will be commented out in the produced python file. If there is signficant amount of already commented out code, this can make it difficult to evaluate what code needs to be corrected. We recommend that you:
+- Remove any unused already commented out code
+- Any already commented out code you want to keep, ensure it's well labeled
+- Clean up existing comments
 
 
 # Step 1: Convert ParFlow Tcl Script to Python
 
-Copy the Little Washita test run files to your new run directory. Note your $PF_SRC should be set to your parflow install `src/` folder
-```
-cp -r $PF_SRC/test/tcl/washita/ ~/RunTest/`
-cd ~/RunTest/washita`
+Create your new run director and copy the Little Washita test run files to your new run directory. Note your $PF_SRC should be set to your parflow install `src/` folder. 
+```bash
+mkdir washita
+cd washita
+RUNDIR=$(pwd)
+cp -r $PF_SRC/test/tcl/washita/tcl_scripts/LW_Test.tcl $RUNDIR
 ```
 
 Convert the tcl document to python. This is made really easy by using the command line function `parflow.cli.tcl2py` 
