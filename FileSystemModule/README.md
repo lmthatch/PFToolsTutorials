@@ -1,6 +1,6 @@
 The File System Module Python ParFlow Tools
 
-Note the File System Module requires the Python 
+Note the File System Module requires the Python os, pathlib, and shutil modules
 
 
 | Function | Description|
